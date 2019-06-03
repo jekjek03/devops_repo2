@@ -9,7 +9,7 @@ node {
       mvnHome = tool 'apache-maven-3.6.0'
    }
    stage('Build') {
-      // Run the maven build
+      // Run the maven build XXX
       withEnv(["MVN_HOME=$mvnHome"]) {
          if (isUnix()) {
             sh '"$MVN_HOME/bin/mvn" -Dmaven.test.failure.ignore clean package'
