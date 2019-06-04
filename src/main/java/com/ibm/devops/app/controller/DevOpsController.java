@@ -13,7 +13,7 @@ public class DevOpsController {
 	private DevOpsService devOpsService;
 	
 	/**
-	 * Loads the home page
+	 * Loads the home page to browser
 	 * @return String
 	 */
 	@GetMapping("/home")
