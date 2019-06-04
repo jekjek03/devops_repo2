@@ -19,7 +19,9 @@ pipeline {
         }
         stage('Testing Stage') {
             steps {
-				echo '***** TESTING STAGE ********'
+				echo '***** TEST RESULTS ********'
+      				junit '**/target/surefire-reports/TEST-*.xml'
+      				archiveArtifacts 'target/*.war'
             }
         }
     }
