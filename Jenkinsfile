@@ -24,5 +24,11 @@ pipeline {
       				archiveArtifacts 'target/*.war'
             }
         }
+        stage('Quality Stage') {
+            steps {
+				echo '***** CODE QUALITY ********'
+				sh 'mvn sonar:sonar'
+            }
+        }
     }
 }
