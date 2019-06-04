@@ -2,6 +2,7 @@ pipeline {
     agent any
 	tools {
 		maven 'maven_3_6_1'
+		sonarScanner 'sonar_scanner_3_3_0'
 	}
     stages {
 	    stage('Initialize Stage') {
