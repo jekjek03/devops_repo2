@@ -4,24 +4,12 @@ pipeline {
 		maven 'maven_3_6_1'
 	}
     stages {
-	    stage('Build using Maven') {
+	    stage('Build and SonarQube Analysis') {
             steps {
-				echo '********** Build using Maven **********'
-				sh 'mvn clean package'
+				echo '********** Build and SonarQube Analysis **********'
+				sh 'mvn clean package sonar:sonar'
             }
         }
-		stage ("SonarQube analysis") {
-			steps {
-				withSonarQubeEnv('SonarQube') {
-					echo '********** Scan using SonarQube Scanner **********'
-					sh "../../../SonarqubeTools/sonar-scanner-3.3.0.1492-windows/bin/sonar-scanner"   
-				}
-				//def qualitygate = waitForQualityGate()
-				//if (qualitygate.status != "OK") {
-				//	error "Pipeline aborted due to quality gate coverage failure: ${qualitygate.status}"
-				//}
-			}
-		}
         stage('Quality Gate') {
             steps {
 				echo '********** Quality Gate **************************'
