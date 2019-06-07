@@ -16,11 +16,10 @@ pipeline {
 					echo '********** Scan using SonarQube Scanner **********'
 					sh "../../../SonarqubeTools/sonar-scanner-3.3.0.1492-windows/bin/sonar-scanner"   
 				}
-
-				def qualitygate = waitForQualityGate()
-				if (qualitygate.status != "OK") {
-					error "Pipeline aborted due to quality gate coverage failure: ${qualitygate.status}"
-				}
+				//def qualitygate = waitForQualityGate()
+				//if (qualitygate.status != "OK") {
+				//	error "Pipeline aborted due to quality gate coverage failure: ${qualitygate.status}"
+				//}
 			}
 		}
         stage('Quality Gate') {
